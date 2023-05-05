@@ -14,6 +14,10 @@ app.get("/", async (req,res,next)=> {
     }
 });
 
+app.use((req,res,next)=>{
+    next(Error("Endpoint not found"));
+});
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((error: unknown,req: Request, res: Response,next: NextFunction)=>{
     console.error(error);
